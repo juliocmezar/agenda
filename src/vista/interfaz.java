@@ -2,6 +2,8 @@
 package vista;
 import javax.swing.table.DefaultTableModel;
 import controlador.*;
+import java.util.ArrayList;
+import modelo.CContacto;
  
 public class interfaz extends javax.swing.JFrame {
     
@@ -34,11 +36,19 @@ public class interfaz extends javax.swing.JFrame {
         tabla = new javax.swing.JTable();
         agrega = new javax.swing.JButton();
         titulo = new javax.swing.JLabel();
-        nombre = new javax.swing.JTextField();
+        nombres = new javax.swing.JTextField();
         lnombre = new javax.swing.JLabel();
         consultar = new javax.swing.JButton();
         salida = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        lapellidos = new javax.swing.JLabel();
+        apellidos = new javax.swing.JTextField();
+        ltelefono = new javax.swing.JLabel();
+        telefono = new javax.swing.JTextField();
+        ldireccion = new javax.swing.JLabel();
+        direccion = new javax.swing.JTextField();
+        lemail = new javax.swing.JLabel();
+        email = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,7 +74,7 @@ public class interfaz extends javax.swing.JFrame {
 
         titulo.setText("Agenda telefónica");
 
-        lnombre.setText("Nombre:");
+        lnombre.setText("Nombres:");
 
         consultar.setText("Consultar");
         consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +86,14 @@ public class interfaz extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         salida.setViewportView(jTextArea1);
+
+        lapellidos.setText("Apellidos:");
+
+        ltelefono.setText("Teléfono:");
+
+        ldireccion.setText("Dirección:");
+
+        lemail.setText("Email:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,20 +108,39 @@ public class interfaz extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lnombre)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(agrega)
                                 .addGap(18, 18, 18)
-                                .addComponent(consultar))))
+                                .addComponent(consultar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(ldireccion)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(direccion))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(lnombre)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lemail)
+                                    .addComponent(lapellidos))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ltelefono)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(email)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(97, 97, 97)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(169, 169, 169)
                         .addComponent(salida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,8 +150,18 @@ public class interfaz extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lnombre)
-                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
+                    .addComponent(nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lapellidos)
+                    .addComponent(apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ltelefono)
+                    .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ldireccion)
+                    .addComponent(direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lemail)
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(agrega)
                     .addComponent(consultar))
@@ -122,7 +169,7 @@ public class interfaz extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(salida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,7 +182,16 @@ public class interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_agregaActionPerformed
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
-       c.consultar();
+        ArrayList<CContacto> lista = new ArrayList<>(); 
+        lista=c.consultar(); 
+        
+        for(CContacto c: lista){
+          System.out.println("ID: " + c.getId() +
+                       ", Nombre: " + c.getNombres() +
+                       ", Apellido: " + c.getApellidos() +
+                       ", Teléfono: " + c.getTelefono() +
+                       ", Correo: " + c.getEmail());           
+        }
     }//GEN-LAST:event_consultarActionPerformed
 
     /**
@@ -175,13 +231,21 @@ public class interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agrega;
+    private javax.swing.JTextField apellidos;
     private javax.swing.JButton consultar;
+    private javax.swing.JTextField direccion;
+    private javax.swing.JTextField email;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lapellidos;
+    private javax.swing.JLabel ldireccion;
+    private javax.swing.JLabel lemail;
     private javax.swing.JLabel lnombre;
-    private javax.swing.JTextField nombre;
+    private javax.swing.JLabel ltelefono;
+    private javax.swing.JTextField nombres;
     private javax.swing.JScrollPane salida;
     private javax.swing.JTable tabla;
+    private javax.swing.JTextField telefono;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

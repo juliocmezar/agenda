@@ -1,6 +1,7 @@
 
 package controlador;
 import java.sql.Connection;
+import java.util.ArrayList;
 import vista.*;
 import modelo.*;
 
@@ -15,13 +16,16 @@ public class CControl {
     }
     
     
-    public void consultar(){ 
+    public ArrayList<CContacto> consultar(){
+       ArrayList<CContacto> lista = new ArrayList<>(); 
        conecta=con.conectar(); 
        if(conecta!=null){ 
-         consulta.consultar(conecta);
-           
-       }
-       con.desconetar(conecta);
+         lista=consulta.consultar(conecta);
+         con.desconectar(conecta);
+         return lista;
+       }else{
+           return null;       
+       } 
     }
     
     

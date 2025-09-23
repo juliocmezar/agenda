@@ -17,13 +17,13 @@ public class CConexion {
        try{         
           con= DriverManager.getConnection(url,usuario,contrasena);
           System.out.println("conexion correcta");
+          return con;
        }catch (Exception e){
-          System.out.println(e.toString());
+          return null;
        }
-       return con;
    }
    
-   public void desconetar(Connection con){
+   public void desconectar(Connection con){
        try{         
           con.close();
           System.out.println("se cerró la conexión");
