@@ -20,7 +20,17 @@ public class CConexion {
        }catch (Exception e){
           System.out.println(e.toString());
        }
-       return con; 
+       return con;
+   }
+   
+   public void desconetar(Connection con){
+       try{         
+          con.close();
+          System.out.println("se cerró la conexión");
+       }catch (Exception e){
+          System.out.println(e.toString());
+       }
        
    }
+   
 }

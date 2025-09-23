@@ -9,20 +9,19 @@ public class CControl {
     CConexion con=new CConexion();
     Connection conecta;
     CConsultas consulta=new CConsultas();
-    String query;
     
     public CControl(){
         
     }
     
     
-    public void consultar(){
-       query="SELECT * FROM datos;"; 
+    public void consultar(){ 
        conecta=con.conectar(); 
        if(conecta!=null){ 
-         consulta.consultar(query, conecta);
+         consulta.consultar(conecta);
            
        }
+       con.desconetar(conecta);
     }
     
     

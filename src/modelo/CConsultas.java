@@ -13,9 +13,9 @@ public class CConsultas {
      }
      
       //para ejecutar consulta recibimos por parámetro una conexión activa, y una query
-     public void consultar(String query, Connection con){ 
+     public void consultar(Connection con){ 
       this.con=con;   
-      this.query = query; 
+      query = "SELECT * FROM datos"; 
       try{ 
           //preparo la consulta
           PreparedStatement preparar=con.prepareStatement(query);
