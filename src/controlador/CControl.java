@@ -8,7 +8,7 @@ public class CControl {
     
     CConexion con=new CConexion();
     Connection conecta;
-    CConsultas consulta;
+    CConsultas consulta=new CConsultas();
     String query;
     
     public CControl(){
@@ -20,7 +20,7 @@ public class CControl {
        query="SELECT * FROM datos;"; 
        conecta=con.conectar(); 
        if(conecta!=null){ 
-          consulta.consultar(query, conecta);
+         consulta.consultar(query, conecta);
            
        }
     }

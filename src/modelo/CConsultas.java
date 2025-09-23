@@ -14,9 +14,9 @@ public class CConsultas {
      
       //para ejecutar consulta recibimos por parámetro una conexión activa, y una query
      public void consultar(String query, Connection con){ 
-      //this.con=con;   
-      //this.query = query; 
-     /* try{ 
+      this.con=con;   
+      this.query = query; 
+      try{ 
           //preparo la consulta
           PreparedStatement preparar=con.prepareStatement(query);
           //ejecuto la consulta luego de prepararla
@@ -41,6 +41,6 @@ public class CConsultas {
        }catch (SQLException ex){
           System.out.println("Error en el sql");
           
-       }*/
+       }
    } 
 }
