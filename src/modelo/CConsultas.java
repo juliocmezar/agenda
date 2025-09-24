@@ -14,9 +14,9 @@ public class CConsultas {
      }
      
      //para ejecutar el método recibimos por parámetro una conexión activa
-     public boolean ingresar(Connection con, String nombres, String apellidos, String direccion, String telefono, String email){
+     public boolean ingresar(Connection con, String nombres, String apellidos, String telefono, String direccion, String email){
          this.con=con;
-         query="INSERT INTO datos(id,nombres,apellidos,telefono,direccion,email) VALUES (null,'Natalia','Casas','4564','cra 30','natalia@gmail.com');";
+         query="INSERT INTO datos(id,nombres,apellidos,telefono,direccion,email) VALUES (null,'"+nombres+"','"+apellidos+"','"+telefono+"','"+direccion+"','"+email+"');";
          try{ 
           //preparo la consulta
           PreparedStatement preparar=con.prepareStatement(query);
