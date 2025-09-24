@@ -13,7 +13,23 @@ public class CConsultas {
          
      }
      
-      //para ejecutar consulta recibimos por parámetro una conexión activa, y una query
+     //para ejecutar el método recibimos por parámetro una conexión activa
+     public boolean ingresar(Connection con, String nombres, String apellidos, String direccion, String telefono, String email){
+         this.con=con;
+         query="INSERT INTO datos(id,nombres,apellidos,telefono,direccion,email) VALUES (null,'Natalia','Casas','4564','cra 30','natalia@gmail.com');";
+         try{ 
+          //preparo la consulta
+          PreparedStatement preparar=con.prepareStatement(query);
+          //ejecuto la consulta luego de prepararla
+          preparar.executeUpdate();
+          return true;
+         }catch (SQLException ex){
+          System.out.println("Error en el sql");
+          return false;
+       }
+     }
+     
+      //para ejecutar el método recibimos por parámetro una conexión activa
      public ArrayList<CContacto> consultar(Connection con){ 
       this.con=con;   
       query = "SELECT * FROM datos"; 

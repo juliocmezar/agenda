@@ -15,6 +15,12 @@ public class CControl {
         
     }
     
+    public boolean insertar(String nombres, String apellidos, String direccion, String telefono, String email){
+       conecta=con.conectar();
+       boolean bandera=consulta.ingresar(conecta, nombres, apellidos,direccion,telefono,email);
+       con.desconectar(conecta);
+       return bandera;
+    }
     
     public ArrayList<CContacto> consultar(){
        ArrayList<CContacto> lista = new ArrayList<>(); 

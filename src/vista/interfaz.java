@@ -135,12 +135,12 @@ public class interfaz extends javax.swing.JFrame {
                                         .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(email)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(169, 169, 169)
-                        .addComponent(salida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(90, Short.MAX_VALUE))
+                        .addComponent(salida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,22 +176,29 @@ public class interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregaActionPerformed
-    
-    // Agregar fila a la tabla
-    modelo.addRow(new Object[]{"Juan", "Pérez", "123456", "juan@gmail.com"});
+       c.insertar(nombres.getText(), apellidos.getText(), telefono.getText(), direccion.getText(), email.getText());
     }//GEN-LAST:event_agregaActionPerformed
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
         ArrayList<CContacto> lista = new ArrayList<>(); 
         lista=c.consultar(); 
-        
-        for(CContacto c: lista){
-          System.out.println("ID: " + c.getId() +
+        //limpio la tabla antes de llevar los valores
+        modelo.setRowCount(0);
+         /*imprime en la consola
+        for(CContacto c: lista){           
+            System.out.println("ID: " + c.getId() +
                        ", Nombre: " + c.getNombres() +
                        ", Apellido: " + c.getApellidos() +
                        ", Teléfono: " + c.getTelefono() +
+                       ", Dirección: " + c.getDireccion() +
                        ", Correo: " + c.getEmail());           
         }
+        */
+        //ponemos la lista en la tabla
+         for(CContacto c: lista){           
+            modelo.addRow(new Object[]{c.getId(), c.getNombres(), c.getApellidos(),c.getDireccion(), c.getTelefono(), c.getEmail()});          
+        }
+            
     }//GEN-LAST:event_consultarActionPerformed
 
     /**
