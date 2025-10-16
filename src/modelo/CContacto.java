@@ -10,6 +10,10 @@ public class CContacto {
     String direccion;
     String email;
     
+    public CContacto(){
+        
+    }
+    
     public CContacto(int id, String nombres, String apellidos, String telefono, String direccion, String email){
         this.id=id;
         this.nombres=nombres;

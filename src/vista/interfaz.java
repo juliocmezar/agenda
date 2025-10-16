@@ -10,7 +10,7 @@ public class interfaz extends javax.swing.JFrame {
     //modelo para manipular la tabla
     DefaultTableModel modelo;
     
-    //atributo para interactuar con la capa de control
+    //instancia del objeto para interactuar con la capa de control
     CControl c=new CControl();
 
     public interfaz() {
