@@ -40,13 +40,13 @@ public class CConsultas {
             //ejecuto la consulta luego de prepararla
             ResultSet resultado = preparar.executeQuery();
 
-                      while (resultado.next()) {
+            while (resultado.next()) {
                 CContacto c = new CContacto(
                         resultado.getInt("id"),
                         resultado.getString("nombres"),
                         resultado.getString("apellidos"),
-                        resultado.getString("direccion"),
                         resultado.getString("telefono"),
+                        resultado.getString("direccion"),
                         resultado.getString("email")
                 );
                 lista.add(c);

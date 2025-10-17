@@ -11,7 +11,9 @@ public class CConexion {
    String contrasena="root";
    String url="jdbc:mysql://localhost:3306/agenda";
    
-   
+   public CConexion(){
+       
+   }
    public Connection conectar(){
        Connection con=null;
        try{         

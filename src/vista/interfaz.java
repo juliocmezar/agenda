@@ -183,17 +183,8 @@ public class interfaz extends javax.swing.JFrame {
         ArrayList<CContacto> lista = new ArrayList<>(); 
         lista=c.consultar(); 
         //limpio la tabla antes de llevar los valores
-        modelo.setRowCount(0);
-         /*imprime en la consola
-        for(CContacto c: lista){           
-            System.out.println("ID: " + c.getId() +
-                       ", Nombre: " + c.getNombres() +
-                       ", Apellido: " + c.getApellidos() +
-                       ", Teléfono: " + c.getTelefono() +
-                       ", Dirección: " + c.getDireccion() +
-                       ", Correo: " + c.getEmail());           
-        }
-        */
+        modelo.setRowCount(0);      
+        
         //ponemos la lista en la tabla
          for(CContacto c: lista){           
             modelo.addRow(new Object[]{c.getId(), c.getNombres(), c.getApellidos(),c.getDireccion(), c.getTelefono(), c.getEmail()});          
